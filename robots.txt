@@ -1,0 +1,20 @@
+# Virixy Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://virixy.com/sitemap.xml
+
+# Optimize crawling
+Crawl-delay: 1
+
+# Don't index the thank you page
+Disallow: /thank-you.html
+
+# Don't index any potential development/test files
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.md$
+Disallow: /README.md
+Disallow: /DEPLOYMENT.md
