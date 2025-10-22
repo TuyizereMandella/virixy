@@ -9,7 +9,7 @@
         <priority>1.0</priority>
         <!-- Logo Image -->
         <image:image>
-            <image:loc>https://virixy.com/logo-template.png</image:loc>
+            <image:loc>https://virixy.com/icon.png</image:loc>
             <image:title>Virixy Logo</image:title>
         </image:image>
     </url>
