@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stop chasing payments. Get paid faster with Virixy's AI-powered invoice management for freelancers and small businesses.">
+    <meta name="keywords" content="invoice management, freelancer tools, AI invoicing, payment tracking, small business">
+    <meta name="author" content="Virixy">
+    <meta property="og:title" content="Virixy - AI-Powered Invoice Management">
+    <meta property="og:description" content="Stop chasing payments. Get paid faster with automated invoice tracking and AI follow-ups.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://virixy.com">
+    <title>Virixy - AI-Powered Invoice Management for Freelancers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2 class="logo-text"></h2><!--Virixy-->
+                <img src="./logo-template.png" alt="Virixy logo" class="logo" onerror="this.style.display='none'">
+                
+            </div>
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <button class="nav-cta">Join Waitlist</button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Stop chasing payments.<br>
+                        <span class="gradient-text">Get paid faster</span> with AI.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Virixy automates your invoice tracking and sends intelligent follow-ups, 
+                        so you can focus on what you do best while getting paid on time.
+                    </p>
+                    <div class="hero-cta">
+                        <form class="waitlist-form" action="https://formsubmit.co/willaaa269@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="New Virixy Waitlist Signup">
+                            <input type="hidden" name="_next" value="/thank-you.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="cta-button">Join Waitlist</button>
+                            </div>
+                        </form>
+                        <p class="form-note">Join our early access waitlist — we're in pre‑launch</p>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="dashboard-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="mockup-content">
+                            <div class="invoice-card">
+                                <div class="invoice-header">
+                                    <span class="invoice-status paid">Paid</span>
+                                    <span class="invoice-amount">$2,500</span>
+                                </div>
+                                <div class="invoice-details">
+                                    <h4>Website Redesign</h4>
+                                    <p>Client: TechCorp Inc.</p>
+                                </div>
+                            </div>
+                            <div class="invoice-card">
+                                <div class="invoice-header">
+                                    <span class="invoice-status pending">Pending</span>
+                                    <span class="invoice-amount">$1,200</span>
+                                </div>
+                                <div class="invoice-details">
+                                    <h4>Logo Design</h4>
+                                    <p>Client: StartupXYZ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-content">
+                <div class="problem-side">
+                    <h2>The Problem</h2>
+                    <div class="problem-list">
+                        <div class="problem-item">
+                            <div class="problem-icon">😤</div>
+                            <div class="problem-text">
+                                <h3>Chasing Late Payments</h3>
+                                <p>Spending hours following up on overdue invoices instead of doing billable work</p>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            <div class="problem-icon">📊</div>
+                            <div class="problem-text">
+                                <h3>Poor Cash Flow</h3>
+                                <p>Unpredictable income makes it hard to plan and grow your business</p>
+                            </div>
+                        </div>
+                        <div class="problem-item">
+                            <div class="problem-icon">⏰</div>
+                            <div class="problem-text">
+                                <h3>Time-Consuming Tracking</h3>
+                                <p>Manual invoice management eats into your productive hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-side">
+                    <h2>The Virixy Solution</h2>
+                    <div class="solution-list">
+                        <div class="solution-item">
+                            <div class="solution-icon">🤖</div>
+                            <div class="solution-text">
+                                <h3>AI-Powered Automation</h3>
+                                <p>Intelligent follow-ups that adapt to each client's communication style</p>
+                            </div>
+                        </div>
+                        <div class="solution-item">
+                            <div class="solution-icon">📈</div>
+                            <div class="solution-text">
+                                <h3>Faster Payments</h3>
+                                <p>Get paid 40% faster on average with automated tracking and reminders</p>
+                            </div>
+                        </div>
+                        <div class="solution-item">
+                            <div class="solution-icon">⚡</div>
+                            <div class="solution-text">
+                                <h3>Set & Forget</h3>
+                                <p>Connect once and let Virixy handle the rest while you focus on your work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in minutes, not hours</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Connect</h3>
+                        <p>Link your Gmail account securely. Virixy reads your sent invoices and tracks their status automatically.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Track</h3>
+                        <p>Our AI monitors payment status and identifies overdue invoices before they become a problem.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Paid</h3>
+                        <p>Receive intelligent follow-up suggestions and automated reminders that actually get responses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to get paid faster</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Gmail Integration</h3>
+                    <p>Seamlessly connect with your existing Gmail workflow. No new tools to learn.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Follow-ups</h3>
+                    <p>Smart, personalized follow-up emails that adapt to each client's communication style.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Simple Dashboard</h3>
+                    <p>Clean, intuitive interface showing all your invoices and their payment status at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>Your data is encrypted and secure. We never store your financial information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Get instant notifications when payments are received or invoices become overdue.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Ready</h3>
+                    <p>Access your dashboard and manage invoices from anywhere, on any device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Freelancers</h2>
+                <p>Pre‑launch interest from 200+ visitors</p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Virixy has completely transformed how I handle invoicing. I'm getting paid 3x faster and spending zero time chasing payments."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Mandella Tuyizere</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The AI follow-ups are incredible. They sound exactly like me but are so much more consistent than I ever was."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Marcus Rodriguez</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Finally, a tool that actually understands the freelancer's pain. My cash flow has never been more predictable."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Emily Watson</h4>
+                            <p>Marketing Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Virixy</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my data secure?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use bank-level encryption and never store your financial information. Your Gmail connection is read-only and can be revoked at any time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How much does Virixy cost?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're launching with a simple, transparent pricing model. Early users get 50% off for the first year. Pricing will be announced when we launch.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What email providers do you support?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're starting with Gmail integration, with Outlook and other providers coming soon. Join our waitlist to be notified when we add your preferred provider.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>When will Virixy be available?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're targeting a Q2 2024 launch. Join our waitlist to get early access and exclusive launch pricing.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I try Virixy before committing?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We'll offer a 14-day free trial when we launch. No credit card required to join the waitlist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to get paid faster?</h2>
+                <p>Join the early access waitlist for exclusive pricing.</p>
+                <form class="waitlist-form" action="https://formsubmit.co/willaaa269@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Virixy Waitlist Signup">
+                    <input type="hidden" name="_next" value="/thank-you.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="cta-button">Join Waitlist</button>
+                    </div>
+                </form>
+                <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <!--<img src="./logo-template.png" alt="Virixy logo" class="logo" onerror="this.style.display='none'"> -->
+                    <h2 class="logo-text">Virixy</h2>
+                    <p>AI-powered invoice management for freelancers</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="mailto:hello@virixy.com">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/virixy" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/virixy" target="_blank" rel="noopener" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/virixy" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://youtube.com/@virixy" target="_blank" rel="noopener" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Virixy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

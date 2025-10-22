@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you for joining the Virixy waitlist!">
+    <title>Thank You - Virixy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .thank-you-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--light-blue) 100%);
+            padding: var(--spacing-lg);
+        }
+        
+        .thank-you-content {
+            background: var(--white);
+            padding: var(--spacing-4xl);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-xl);
+            font-size: var(--font-size-4xl);
+            color: var(--white);
+        }
+        
+        .thank-you-content h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .thank-you-content p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+        
+        .next-steps {
+            background: var(--gray-50);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-xl) 0;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .next-steps li {
+            padding: var(--spacing-sm) 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+        
+        .next-steps li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        .back-button {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-content {
+                padding: var(--spacing-2xl);
+            }
+            
+            .thank-you-content h1 {
+                font-size: var(--font-size-3xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-page">
+        <div class="thank-you-content">
+            <div class="success-icon">✓</div>
+            <h1>Welcome to Virixy!</h1>
+            <p>Thank you for joining our waitlist. You're now part of an exclusive group of freelancers who will get early access to the future of invoice management.</p>
+            
+            <div class="next-steps">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li>You'll receive a confirmation email shortly</li>
+                    <li>We'll notify you when Virixy launches (Q2 2024)</li>
+                    <li>Early access users get 50% off for the first year</li>
+                    <li>You'll be the first to try our AI-powered features</li>
+                </ul>
+            </div>
+            
+            <p>In the meantime, follow us on social media for updates and tips on getting paid faster as a freelancer.</p>
+            
+            <a href="index.html" class="back-button">Back to Homepage</a>
+        </div>
+    </div>
+    
+    <script>
+        // Track conversion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+            });
+        }
+        
+        // Track with Facebook Pixel
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
+    </script>
+</body>
+</html>
