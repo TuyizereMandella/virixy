@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="notification-modal.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -31,7 +32,24 @@
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#how-it-works" class="nav-link">How It Works</a>
                 <a href="#faq" class="nav-link">FAQ</a>
-                <button class="nav-cta">Join Waitlist</button>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="countdown-days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="countdown-hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="countdown-minutes">00</span>
+                        <span class="countdown-label">Min</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="countdown-seconds">00</span>
+                        <span class="countdown-label">Sec</span>
+                    </div>
+                </div>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon" id="theme-icon"></i>
                 </button>
@@ -58,11 +76,7 @@
                         so you can focus on what you do best while getting paid on time.
                     </p>
                     <div class="hero-cta">
-                        <form class="waitlist-form" action="https://formsubmit.co/willaaa269@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="New Virixy Waitlist Signup">
-                            <input type="hidden" name="_next" value="/thank-you.html">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_template" value="table">
+                        <form class="waitlist-form" id="hero-waitlist-form">
                             <div class="form-group">
                                 <input type="email" name="email" placeholder="Enter your email address" required>
                                 <button type="submit" class="cta-button">Join Waitlist</button>
@@ -352,11 +366,7 @@
             <div class="cta-content">
                 <h2>Ready to get paid faster?</h2>
                 <p>Join the early access waitlist for exclusive pricing.</p>
-                <form class="waitlist-form" action="https://formsubmit.co/willaaa269@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New Virixy Waitlist Signup">
-                    <input type="hidden" name="_next" value="/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
+                <form class="waitlist-form" id="footer-waitlist-form">
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Enter your email address" required>
                         <button type="submit" class="cta-button">Join Waitlist</button>
@@ -372,8 +382,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <!--<img src="./logo-template.png" alt="Virixy logo" class="logo" onerror="this.style.display='none'"> -->
-                    <h2 class="logo-text">Virixy</h2>
+                    <img src="./logo-template.png" alt="Virixy logo" class="footer-logo-img" onerror="this.style.display='none'">
                     <p>AI-powered invoice management for freelancers</p>
                 </div>
                 <div class="footer-links">
@@ -407,5 +416,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="form-handler.js"></script>
 </body>
 </html>

@@ -42,6 +42,46 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         });
     }
+
+    // Launch Countdown Timer
+    const countdownElements = {
+        days: document.getElementById('countdown-days'),
+        hours: document.getElementById('countdown-hours'),
+        minutes: document.getElementById('countdown-minutes'),
+        seconds: document.getElementById('countdown-seconds')
+    };
+
+    function initCountdown() {
+        // Get or set the end time (5 days from first visit)
+        let endTime = localStorage.getItem('launchEndTime');
+        if (!endTime) {
+            endTime = new Date().getTime() + (5 * 24 * 60 * 60 * 1000); // 5 days
+            localStorage.setItem('launchEndTime', endTime);
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = Math.max(endTime - now, 0);
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            countdownElements.days.textContent = String(days).padStart(2, '0');
+            countdownElements.hours.textContent = String(hours).padStart(2, '0');
+            countdownElements.minutes.textContent = String(minutes).padStart(2, '0');
+            countdownElements.seconds.textContent = String(seconds).padStart(2, '0');
+
+            if (timeLeft > 0) {
+                requestAnimationFrame(updateCountdown);
+            }
+        }
+
+        updateCountdown();
+    }
+
+    initCountdown();
     
         // Simple navigation link handling
         const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
@@ -79,46 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form handling and validation
-    const waitlistForms = document.querySelectorAll('.waitlist-form');
-    
-    waitlistForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = form.querySelector('input[type="email"]');
-            const submitButton = form.querySelector('.cta-button');
-            const email = emailInput.value.trim();
-            
-            // Basic email validation
-            if (!isValidEmail(email)) {
-                showMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const originalText = submitButton.textContent;
-            submitButton.textContent = 'Joining...';
-            submitButton.disabled = true;
-            
-            // Simulate form submission (replace with actual FormSubmit.co handling)
-            setTimeout(() => {
-                // Reset button state
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-
-                // Show centered thank-you modal
-                showCenteredModal('Thanks for joining our waitlist! We\'ll be in touch soon.', 'success');
-
-                // Clear form
-                emailInput.value = '';
-
-                // Track conversion (you can add analytics here)
-                trackConversion('waitlist_signup');
-
-            }, 1500);
-        });
-    });
+    // NOTE: legacy inline form handler removed. Form submissions are now handled by `form-handler.js`
+    // which uses fetch and the new notification system. This prevents duplicate notifications.
     
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');

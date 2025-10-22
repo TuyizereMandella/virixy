@@ -231,20 +231,43 @@ body {
     width: 100%;
 }
 
-.nav-cta {
-    background: var(--primary-blue);
-    color: var(--white);
-    border: none;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-fast);
+.countdown-container {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: 0.5rem;
+    background: rgba(37, 99, 235, 0.1);
+    border-radius: var(--radius-lg);
+    align-items: center;
 }
 
-.nav-cta:hover {
-    background: var(--primary-blue-dark);
-    transform: translateY(-1px);
+.countdown-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 48px;
+    padding: 0.25rem;
+}
+
+.countdown-value {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+    .countdown-container {
+        width: 100%;
+        justify-content: center;
+        margin-top: var(--spacing-md);
+    }
 }
 
 .theme-toggle {
@@ -1015,18 +1038,33 @@ body {
     margin-bottom: var(--spacing-2xl);
 }
 
-.footer-logo h3 {
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    margin-bottom: var(--spacing-sm);
-    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.footer-logo-img {
+    width: 120px; /* medium size */
+    height: auto;
+    object-fit: contain;
 }
 
 .footer-logo p {
     color: var(--gray-300);
+    font-size: var(--font-size-base);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-logo {
+        align-items: center;
+    }
+    
+    .footer-logo-img {
+        width: 100px; /* slightly smaller on mobile */
+    }
 }
 
 .footer-links {
@@ -1266,49 +1304,106 @@ html {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-/* Centered modal (thank-you) */
+/* Notification-style modal */
 .v-modal-overlay {
     position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.4);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
     z-index: 10050;
-    padding: 1rem;
 }
 
 .v-modal {
+    position: fixed;
+    top: 24px;
+    right: 24px;
     background: var(--white);
     color: var(--text-primary);
     border-radius: var(--radius-lg);
-    max-width: 520px;
-    width: 100%;
+    max-width: 380px;
+    width: calc(100% - 48px);
     box-shadow: var(--shadow-xl);
-    position: relative;
-    padding: 1.5rem 1.5rem 1.25rem 1.5rem;
+    padding: 1rem;
+    animation: slideInRight 0.3s ease-out;
+    pointer-events: auto;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .v-modal-success {
-    border-top: 4px solid var(--primary-blue);
+    border-left: 4px solid var(--primary-blue);
 }
 
 .v-modal-content p {
     margin: 0;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     line-height: 1.4;
+    padding-right: 20px;
 }
 
 .v-modal-close {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
     background: transparent;
     border: none;
-    font-size: 1.4rem;
-    line-height: 1;
-    cursor: button;
+    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     color: var(--text-secondary);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.v-modal-close:hover {
+    opacity: 1;
+}
+
+/* Styles for anchored callout notifications (near a button/anchor) */
+.v-modal[data-position="anchor"] {
+    max-width: 320px;
+    width: auto;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.14);
+}
+
+.v-modal-arrow {
+    position: absolute;
+    top: 100%;
+    width: 16px;
+    height: 8px;
+    left: 16px; /* updated dynamically in JS */
+    transform: translateY(-6px);
+    pointer-events: none;
+}
+
+.v-modal-arrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--white);
 }
 
 @media (max-width: 480px) {
