@@ -43,29 +43,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
+        // Simple navigation link handling
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Only close mobile menu if open
                 if (navMenu.classList.contains('active')) {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
                 }
-            }
+            });
         });
-    });
     
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -118,16 +106,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Reset button state
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-                
-                // Show success message
-                showMessage('Thanks for joining our waitlist! We\'ll be in touch soon.', 'success');
-                
+
+                // Show centered thank-you modal
+                showCenteredModal('Thanks for joining our waitlist! We\'ll be in touch soon.', 'success');
+
                 // Clear form
                 emailInput.value = '';
-                
+
                 // Track conversion (you can add analytics here)
                 trackConversion('waitlist_signup');
-                
+
             }, 1500);
         });
     });
@@ -136,44 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        // Hide/show navbar on scroll (optional)
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-    
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.step, .feature-card, .testimonial, .problem-item, .solution-item');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
     
     // CTA button click tracking
     const ctaButtons = document.querySelectorAll('.cta-button, .nav-cta');
@@ -253,47 +203,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Scroll-based translation animations
-    const animatedElements = document.querySelectorAll('.hero-text, .hero-visual, .section-header, .step, .feature-card, .testimonial, .problem-item, .solution-item');
-    
-    function handleScrollAnimations() {
-        const scrollY = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        
-        animatedElements.forEach((element, index) => {
-            const elementTop = element.offsetTop;
-            const elementHeight = element.offsetHeight;
-            const elementCenter = elementTop + elementHeight / 2;
-            
-            // Calculate distance from viewport center
-            const distanceFromCenter = elementCenter - (scrollY + windowHeight / 2);
-            
-            // Apply translation based on distance (parallax effect)
-            const translateY = distanceFromCenter * 0.1;
-            const opacity = Math.max(0, 1 - Math.abs(distanceFromCenter) / (windowHeight * 0.8));
-            
-            // Apply transforms with smooth easing
-            element.style.transform = `translateY(${translateY}px)`;
-            element.style.opacity = opacity;
-            
-            // Add entrance animation when element comes into view
-            if (distanceFromCenter < windowHeight * 0.5 && distanceFromCenter > -windowHeight * 0.5) {
-                element.classList.add('animate-in');
-            }
-        });
-    }
-    
-    // Throttled scroll handler for better performance
-    let scrollTimeout;
+    // Simple navbar scroll handling
     window.addEventListener('scroll', function() {
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
-        scrollTimeout = setTimeout(handleScrollAnimations, 16); // ~60fps
     });
-    
-    // Initial call
-    handleScrollAnimations();
     
     // Loading animation
     window.addEventListener('load', function() {
@@ -341,6 +260,60 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.removeChild(messageEl);
             }, 300);
         }, 5000);
+    }
+
+    // Centered modal for success messages
+    function showCenteredModal(message, type = 'info', options = {}) {
+        // Prevent multiple modals
+        if (document.querySelector('.v-modal-overlay')) return;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'v-modal-overlay';
+
+        const modal = document.createElement('div');
+        modal.className = `v-modal v-modal-${type}`;
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+
+        const content = document.createElement('div');
+        content.className = 'v-modal-content';
+        content.innerHTML = `<p>${message}</p>`;
+
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'v-modal-close';
+        closeBtn.setAttribute('aria-label', 'Close');
+        closeBtn.innerHTML = '&times;';
+
+        modal.appendChild(closeBtn);
+        modal.appendChild(content);
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Keep focus inside modal
+        const previousActive = document.activeElement;
+        closeBtn.focus();
+
+        function removeModal() {
+            if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            if (previousActive && typeof previousActive.focus === 'function') previousActive.focus();
+            document.removeEventListener('keydown', onKeyDown);
+        }
+
+        function onKeyDown(e) {
+            if (e.key === 'Escape') removeModal();
+        }
+
+        // Click handlers
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) removeModal();
+        });
+        closeBtn.addEventListener('click', removeModal);
+        document.addEventListener('keydown', onKeyDown);
+
+        // Auto-dismiss after timeout unless options.sticky is true
+        if (!options.sticky) {
+            setTimeout(removeModal, options.timeout || 5000);
+        }
     }
     
     function trackEvent(eventName, properties = {}) {
